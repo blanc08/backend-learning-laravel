@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -13,6 +16,26 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+$router->get('/key', function () use ($router) {
     return \Illuminate\Support\Str::random(32);
+});
+
+
+// User
+$router->group(['prefix' => 'users'], function () use ($router) {
+    $router->get('/', 'UserController@index');
+    $router->post('/store', 'UserController@store');
+    $router->get('/{id}', 'UserController@show');
+    $router->put('/update/{id}', 'UserController@update');
+    $router->delete('/destroy/{id}', 'UserController@destroy');
+});
+
+
+// Product
+$router->group(['prefix' => 'products'], function () use ($router) {
+    $router->get('/', 'ProductController@index');
+    $router->post('/store', 'ProductController@store');
+    $router->get('/{id}', 'ProductController@show');
+    $router->put('/update/{id}', 'ProductController@update');
+    $router->delete('/destroy/{id}', 'ProductController@destroy');
 });
