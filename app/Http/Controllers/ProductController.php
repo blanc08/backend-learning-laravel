@@ -55,7 +55,7 @@ class ProductController extends Controller
             return response()->json(
                 [
                     "status" => 'error',
-                    "message" => $e->getMessage(),
+                    "message" => 'Product create failed',
                     "error_code" => $e->getCode(),
                     "errors" => $e
                 ],
@@ -84,7 +84,7 @@ class ProductController extends Controller
             return response()->json(
                 [
                     "status" => 'error',
-                    "message" => $e->getMessage(),
+                    "message" => 'Product not found',
                     "error_code" => $e->getCode(),
                     "errors" => $e
                 ],
@@ -115,7 +115,7 @@ class ProductController extends Controller
             return response()->json(
                 [
                     "status" => 'error',
-                    "message" => $e->getMessage(),
+                    "message" => 'Product update failed',
                     "error_code" => $e->getCode(),
                     "errors" => $e
                 ],
@@ -145,7 +145,7 @@ class ProductController extends Controller
             return response()->json(
                 [
                     "status" => 'error',
-                    "message" => $e->getMessage(),
+                    "message" => 'product delete failed',
                     "error_code" => $e->getCode(),
                     "errors" => $e
                 ],
